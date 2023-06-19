@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appsettings-demo
+data:
+  appsettings.k8s.json: |-
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Error",
+          "System": "Error",
+          "Microsoft": "Error"
+        }
+      },
+      "ConnectionStrings": {
+        "MYSQL_USER": "newuser",
+        "MYSQL_DATABASE": "Usersdb",
+        "DBHOST": "mysql",
+        "DBPORT": "3306"
+      }
+    }

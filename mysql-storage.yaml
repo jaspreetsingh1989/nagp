@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+data:
+  initdb.sql: |
+    CREATE DATABASE Usersdb1;
+    CREATE TABLE Usersdb1.Users (
+    UserName VARCHAR(30) NOT NULL,
+    Hobbies VARCHAR(30) NOT NULL,
+    Location VARCHAR(50));
+    INSERT INTO Usersdb1.Users (UserName,Hobbies,Location)
+    VALUES ('UN1','HB1','LC1');
+    INSERT INTO Users (UserName,Hobbies,Location)
+    VALUES ('UN2','HB2','LC2');
+    INSERT INTO Users (UserName,Hobbies,Location)
+    VALUES ('UN3','HB3','LC3');
+    INSERT INTO Users (UserName,Hobbies,Location)
+    VALUES ('UN4','HB4','LC4');
+    INSERT INTO Users (UserName,Hobbies,Location)
+    VALUES ('UN5','HB5','LC5');

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readdata-deployment
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: readdata-pod
+  template:
+    metadata:
+      labels:
+        app: readdata-pod
+    spec:
+      volumes:
+        - name: appsettings-demo-volume
+          configMap:
+            name: appsettings-demo
+      containers:
+      - name: readdata-container
+        image: jaspreet2309/readdata:v16
+        imagePullPolicy: Always
+        volumeMounts:
+            - name: appsettings-demo-volume
+              mountPath: /app/appsettings.k8s.json
+              subPath: appsettings.k8s.json
+        env:
+          - name: DBHOST
+            value: mysql
+          - name: MYSQL_USER
+            value: newuser
+          - name: MYSQL_PASSWORD
+            valueFrom:
+             secretKeyRef:
+              name: mysql-secret
+              key: password
+          - name: MYSQL_DATABASE
+            value: Usersdb
+        resources:
+          limits:
+            cpu: 125m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        ports:
+        - containerPort: 80

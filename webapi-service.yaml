@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: readdata-service
+  labels:
+    run: readdata-service
+spec:
+  selector:
+    app: readdata-pod
+  ports:
+  - port: 8080
+    targetPort: 80
+    protocol: TCP
+  type: LoadBalancer
