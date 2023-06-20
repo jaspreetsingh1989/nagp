@@ -1,0 +1,118 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: documents-api
+  name: documents-api-deployment
+spec:
+  minReadySeconds: 5
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: documents-api
+  template:
+    metadata:
+      labels:
+        app: documents-api
+    spec:
+      containers:
+      - name: documents-api
+        image: $#$acrName$#$.azurecr.io/webapi-documents:$#$imageTag$#$
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 125m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: "/api/version"
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: "/api/version"
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+        env:
+        - name: ApiHostEnvironment
+          valueFrom:
+            secretKeyRef:
+              key: api-host-env
+              name: api-config-generic-secret
+        - name: Caching__IsEnabled
+          valueFrom:
+            secretKeyRef:
+              key: cache-enabled
+              name: api-config-generic-secret
+        - name: Caching__DefaultCacheDurationInSeconds
+          valueFrom:
+            secretKeyRef:
+              key: cache-duration-seconds
+              name: api-config-generic-secret
+        - name: Caching__UseSlidingExpiration
+          valueFrom:
+            secretKeyRef:
+              key: cache-sliding-expiration
+              name: api-config-generic-secret
+        - name: Logging__ApplicationInsights__LogLevel__Default
+          valueFrom:
+            secretKeyRef:
+              key: logging-level-Default
+              name: api-config-generic-secret
+        - name: Logging__ApplicationInsights__LogLevel__Microsoft
+          valueFrom:
+            secretKeyRef:
+              key: logging-level-Microsoft
+              name: api-config-generic-secret
+        - name: ApiKeyAuthentication__IsEnabled
+          valueFrom:
+            secretKeyRef:
+              key: api-auth-enabled
+              name: api-config-generic-secret
+        - name: DataPublicationLayer__CosmosDb__ContainerNames__Documents
+          valueFrom:
+            secretKeyRef:
+              key: dbcontainer-name-documents
+              name: api-config-generic-secret
+        - name: Download__WhitelistDomains
+          valueFrom:
+            secretKeyRef:
+              key: download-white-list-domains
+              name: api-config-generic-secret
+        - name: Download__MaxFileSizeLimitInBytes
+          valueFrom:
+            secretKeyRef:
+              key: download-max-file-size
+              name: api-config-generic-secret
+        - name: AZ_KEYVAULT_NAME
+          valueFrom:
+            secretKeyRef:
+              key: keyvaultname
+              name: az-keyvault-secret
+        - name: AZ_KEYVAULT_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              key: clientid
+              name: az-keyvault-secret
+        - name: AZ_KEYVAULT_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: clientsecret
+              name: az-keyvault-secret
+        - name: AZ_KEYVAULT_TENANT_ID
+          valueFrom:
+            secretKeyRef:
+              key: tenantid
+              name: az-keyvault-secret

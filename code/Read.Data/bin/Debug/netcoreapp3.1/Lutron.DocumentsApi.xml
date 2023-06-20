@@ -1,0 +1,1239 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lutron.DocumentsApi</name>
+    </assembly>
+    <members>
+        <member name="T:Lutron.DocumentsApi.BLL.ICaseStudiesBL">
+            <summary>
+            Description : Interface for CaseStudies BLL 
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |09/06/2021   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="T:Lutron.DocumentsApi.BLL.IDocumentsBL">
+            <summary>
+            Description : Interface for Documents BLL 
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |10/20/2020   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="T:Lutron.DocumentsApi.BLL.CaseStudiesBL">
+            <summary>
+            Description : BLL for CaseStudies used as a communicator between controller and DAL.
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |09/06/2021   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.CaseStudiesBL.GetAllCaseStudies(System.String,System.String)">
+            <summary>
+            Fetch all case studies
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <returns>List of case studies</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.CaseStudiesBL.GetFeaturedCaseStudies(System.String,System.String)">
+            <summary>
+            Fetch detailed caseStudies
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <returns>List of caseStudies tagged with given product family name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.CaseStudiesBL.GetFeaturedCaseStudiesWithFilters(System.String,System.String)">
+            <summary>
+            Fetch filters for a country and language
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <returns>Filters available for Case Studies</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.CaseStudiesBL.GetCaseStudyByName(System.String,System.String,System.String)">
+            <summary>
+            Fetch case study for given name
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="caseStudyName">Case Study Name</param>
+            <returns>Case study</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.CaseStudiesBL.GetCaseStudiesByCategory(System.String,System.String,System.String)">
+            <summary>
+            Fetch case studies for given category name
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="categoryName">Category Name</param>
+            <returns>List of caseStudies tagged with given category name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.CaseStudiesBL.GetCaseStudiesByProduct(System.String,System.String,System.String)">
+            <summary>
+            Fetch all caseStudies associated with given product name
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="productName">Product Name</param>
+            <returns>List of caseStudies tagged with given product name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.CaseStudiesBL.GetCaseStudiesByRegion(System.String,System.String,System.String)">
+            <summary>
+            Fetch case studies for given region
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="regionName">Region Name</param>
+            <returns>List of case studies tagged with given region</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.CaseStudiesBL.SearchCaseStudies(System.String,System.String,Lutron.DocumentsApi.Models.CaseStudySearchFilter)">
+            <summary>
+            Fetch case studies based on filter criteria
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="searchFilter">Filter criteria</param>
+            <returns>List of case studies matching filter criteria</returns>
+        </member>
+        <member name="T:Lutron.DocumentsApi.BLL.DocumentsBL">
+            <summary>
+            Description : BLL for Documents used as a communicator between controller and DAL.
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |10/20/2020   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsByProductFamily(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given product family name
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="pfName">Product Family Name</param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given product family name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsByPFDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given product family name and document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="pfName">Product Family Name</param>
+            <param name="docType">Document Type</param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given product family name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsBySolution(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given solution name
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="solutionName">Solution Name</param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given product family name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsBySolDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given solution name and document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="solutionName">Solution Name</param>
+            <param name="docType">Document Type</param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given solution name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsByBaseModel(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given base model name
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="baseModelName">Base Model Name</param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given base model name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsByBMDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given base model name and document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="baseModelName">Base Model Name</param>
+            <param name="docType">Document Type</param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given base model name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsByTag(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given tag
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="tag">Tag</param>
+            <param name="entityType"></param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given tag</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsByTagDocumentType(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given tag and document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="tag">Tag</param>
+            <param name="docType">Document Type</param>
+            <param name="entityType"></param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given tag</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsByCollection(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given collection name
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="collectionName">Collection Name</param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given collection name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.GetDocumentsByCollectionDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents from DAL for given proCollectionduct name and document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="collectionName">Collection Name</param>
+            <param name="docType">Document Type</param>
+            <param name="persona">persona value</param>
+            <returns>List of documents tagged with given collection name</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.DownloadDocuments(System.Collections.Generic.List{System.String})">
+            <summary>
+            Method to download documents from a given list of document URLs
+            </summary>
+            <param name="filesToDownload">List of document URLs</param>
+            <returns>Documents downloaded as byte array</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.ZipDocuments(System.Collections.Generic.List{System.String})">
+            <summary>
+            Zip input documents in azure blob storage and return Zip Url
+            </summary>
+            <param name="filesToDownload"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.ValidateDocuments(System.Collections.Generic.List{System.String})">
+            <summary>
+            Method to validate documents w.r.t. given list of document URLs
+            </summary>
+            <param name="filesToValidate">List of document URLs</param>
+            <returns>Documents validated with error messages</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.BLL.DocumentsBL.ValidateFileURLs(System.Collections.Generic.List{System.String})">
+            <summary>
+            Method to validate document URLs against given set of validations
+            </summary>
+            <param name="filesToValidate">List of file URLs to validate</param>
+            <returns>List of invalid URLs</returns>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Controllers.DocumentsController">
+            <summary>
+            Description : Version 1.0 of Controller for Documents. Serves request of type - "/api/documents"
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |10/20/2020   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsByProductFamily(System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Product Family and Country. The Product Family name to be supplied should be the internal name of Product Family, which is language independent.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="productFamilyName">[required] Product Family Name. This should be the internal name of Product Family which is language independent.</param>
+            <returns>List of Documents for a given Product Family and Country in data property of API response</returns>
+            <response code="200">List of Documents for a given Product Family and Country in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsByPFDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Product Family, Country and document-type. The Product Family name and document-type to be supplied should be the internal name of Product Family and document-type respectively, which are language independent.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="productFamilyName">[required] Product Family Name. This should be the internal name of Product Family which is language independent.</param>
+            <param name="documentType">[required] Document Type. This should be the internal name of Document Type which is language independent.</param>
+            <returns>List of Documents for a given Product Family, Country and Document Type in data property of API response.</returns>
+            <response code="200">List of documents for a given Product Family, Country and Document Type in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsBySolution(System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Solution and Country. The Solution name to be supplied should be the internal name of Solution, which is language independent.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="solutionName">[required] Solution Name. This should be the internal name of Solution which is language independent.</param>
+            <returns>List of Documents for a given Solution and Country in data property of API response</returns>
+            <response code="200">List of Documents for given Solution and Country in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsBySolDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Solution, Country and document type. The Solution name and document type to be supplied should be the internal name of Solution and document type respectively, which are language independent.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="solutionName">[required] Solution Name. This should be the internal name of Solution which is language independent.</param>
+            <param name="documentType">[required] Document Type. This should be the internal name of Document Type which is language independent.</param>
+            <returns>List of Documents for given Solution, document type and Country in data property of API response</returns>
+            <response code="200">List of Documents for given Solution, document type and Country in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsByBaseModel(System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Base Model Number and Country.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="baseModelName">[required] Base Model Number</param>
+            <returns>List of Documents for given Base Model Number and Country in data property of API response</returns>
+            <response code="200">List of Documents for given Base Model Number and Country in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsByBMDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Base Model Number, Country and document type. For Document-type, internal name should be supplied, which is language independent.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="baseModelName">[required] Base Model Name</param>
+            <param name="documentType">[required] Document Type. This should be the internal name of Document Type which is language independent.</param>
+            <returns>List of Documents for given Base Model Number, Country and document type in data property of API response</returns>
+            <response code="200">List of Documents for given Base Model Number, Country and document type in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsByTag(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Tag name.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona"></param>
+            <param name="entityType">Entity type</param>
+            <param name="tagName">[required] Tag</param>
+            <returns>List of Documents for given Tag name and Country in data property of API response</returns>
+            <response code="200">List of Documents for given Tag name and Country in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsByTagDocumentType(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+             Get a list of documents available in Ecosystem, for a requested Tag name and document-type. For Document-type, internal name should be supplied, which is language independent.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="entityType"></param>
+            <param name="tagName">[required] Tag</param>
+            <param name="documentType">[required] Document Type. This should be the internal name of Document Type which is language independent.</param>
+            <returns>List of Documents for given Tag name, Country and document-type in data property of API response</returns>
+            <response code="200">List of Documents for given Tag name, Country and document-type in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsByCollection(System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Collection and Country. The collection name to be supplied should be the internal name of Collection, which is language independent.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="collectionName">[required] Collection Name. This should be the internal name of Collection which is language independent.</param>
+            <returns>List of Documents for a given Collection and Country in data property of API response</returns>
+            <response code="200">List of Documents for a given Collection and Country in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DocumentsController.GetDocumentsByCollectionDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Get a list of documents available in Ecosystem, for a requested Collection, Country and document-type. The Collection name and document-type to be supplied should be the internal name of Collection and document-type respectively, which are language independent.
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="persona">persona type</param>
+            <param name="collectionName">[required] Collection Name. This should be the internal name of Collection which is language independent.</param>
+            <param name="documentType">[required] Document Type. This should be the internal name of Document Type which is language independent.</param>
+            <returns>List of Documents for a given Collection, Country and Document Type in data property of API response.</returns>
+            <response code="200">List of documents for a given Collection, Country and Document Type in data property of API response</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DownloadController.DownloadDocuments(System.String)">
+            <summary>
+            Generates the downloadable file stream of the requested file
+            </summary>
+            <param name="inputfileUrlToDownload">[required] File url to download</param>
+            <returns>Documents retrieved from blob storage</returns>
+            <response code="200">Downloaded Documents</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DownloadController.ZipAndDownloadDocuments(System.Collections.Generic.List{System.String})">
+            <summary>
+            Zip Input requests and Returns the Zip path
+            </summary>
+            <param name="inputfileUrlsToDownload">[required] List of file urls to download</param>
+            <returns>Documents retrieved from blob storage</returns>
+            <response code="200">Downloaded Documents</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.DownloadController.ValidateDocumentURLs(System.Collections.Generic.List{System.String})">
+            <summary>
+            Method to return Validated Documents
+            </summary>
+            <param name="inputfileUrlsToDownload">[required] List of files to validate</param>
+            <returns>Documents validated from blob storage</returns>
+            <response code="200">Validated Documents</response>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.ErrorController.Error">
+            <summary>
+            Method to return an error message if an exception has occurred
+            </summary>
+            <returns>Returns an error message if an exception has occurred</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Controllers.VersionController.Version">
+            <summary>
+            Returns the Latest and all Versions of API
+            </summary>
+            <returns>All version and the Latest version</returns>
+        </member>
+        <member name="T:Lutron.DocumentsApi.DAL.ICaseStudiesDAL">
+            <summary>
+            Description : Interface for CaseStudies DAL 
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |09/06/2021   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="T:Lutron.DocumentsApi.DAL.IDocumentsDAL">
+            <summary>
+            Description : Interface for Documents DAL 
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |10/20/2020   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="T:Lutron.DocumentsApi.DAL.CaseStudiesDAL">
+            <summary>
+            Description : DAL for CaseStudies used to fetch data from Cosmos DB.
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |09/06/2021   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.CaseStudiesDAL.GetAllCaseStudies(System.String,System.String)">
+            <summary>
+            Fetch all caseStudies' data from Cosmos DB for a product family
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <returns>List of CaseStudies</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.CaseStudiesDAL.GetCaseStudyByName(System.String,System.String,System.String)">
+            <summary>
+            Fetch all caseStudies' data from Cosmos DB for a product family of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="caseStudyName">Case Study Name</param>
+            <returns>List of CaseStudies</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.CaseStudiesDAL.GetFeaturedCaseStudiesWithFilters(System.String,System.String)">
+            <summary>
+            Fetch all caseStudies' data from Cosmos DB for a solution of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <returns>List of CaseStudies</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.CaseStudiesDAL.GetCaseStudiesByCategory(System.String,System.String,System.String)">
+            <summary>
+            Fetch all caseStudies' data from Cosmos DB for a base model of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="categoryName">Category Name</param>
+            <returns>List of CaseStudies</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.CaseStudiesDAL.GetCaseStudiesByProduct(System.String,System.String,System.String)">
+            <summary>
+            Fetch all caseStudies' data from Cosmos DB for a tag
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="productName">Product Name</param>
+            <returns>List of CaseStudies</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.CaseStudiesDAL.GetCaseStudiesByRegion(System.String,System.String,System.String)">
+            <summary>
+            Fetch all caseStudies' data from Cosmos DB for a tag of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="regionName">Region Name</param>
+            <returns>List of CaseStudies</returns>
+        </member>
+        <member name="T:Lutron.DocumentsApi.DAL.DocumentsDAL">
+            <summary>
+            Description : DAL for Documents used to fetch data from Cosmos DB.
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |10/20/2020   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByProductFamily(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a product family
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="pfName">Product Family Name</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByPFDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a product family of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="pfName">Product Family Name</param>
+            <param name="docType">Document Type</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsBySolution(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a solution
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="solutionName">Solution Name</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsBySolDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a solution of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="solutionName">Solution Name</param>
+            <param name="docType">Document Type</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByBaseModel(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a base model
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="baseModelName">Base Model Name</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByBMDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a base model of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="baseModelName">Base Model Name</param>
+            <param name="docType">Document Type</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByTag(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a tag
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="tag">Tag</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByEntityTypeTag(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents data from Cosmos DB for a entity type tag
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="tag">Tag</param>
+            <param name="entityType">Entity Type</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByTagDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a tag of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="tag">Tag</param>
+            <param name="docType">Document Type</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByEntityTypeTagDocumentType(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents data from Cosmos DB for a tag of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="tag">Tag</param>
+            <param name="docType">Document Type</param>
+            <param name="entityType"></param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByCollection(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a collection
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="collectionName">Collection Name</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByCollectionDocumentType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents' data from Cosmos DB for a collection of specific document type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="collectionName">Collection Name</param>
+            <param name="docType">Document Type</param>
+            <param name="persona"></param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.DownloadDocuments(System.Collections.Generic.List{System.String})">
+            <summary>
+            Method to download documents from given list of URLs
+            </summary>
+            <param name="filesToDownload">List of documents to be downloaded</param>
+            <returns>Documents downloaded as byte array</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.ZipDocuments(System.Collections.Generic.List{System.String})">
+            <summary>
+            Zip input documents in azure blob storage and return Zip Url
+            </summary>
+            <param name="filesToDownload"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.ValidateDocuments(System.Collections.Generic.List{System.String})">
+            <summary>
+            Method to validate documents from given list of URLs
+            </summary>
+            <param name="filesToValidate">List of documents to be validated</param>
+            <returns>Documents downloaded as byte array</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByMapping(System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents data from Cosmos DB for a mapping
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="mappingName">Name of Mapping</param>
+            <param name="mappingType">Type of Mapping</param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetDocumentsByMappingAndDocType(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents data from Cosmos DB for a mapping
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="mappingName">Name of Mapping</param>
+            <param name="mappingType">Type of Mapping</param>
+            <param name="docType">Type of Document</param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetPersonaDocumentsByMapping(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents data from Cosmos DB for a mapping and persona type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="mappingName">Name of Mapping</param>
+            <param name="mappingType">Type of Mapping</param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="M:Lutron.DocumentsApi.DAL.DocumentsDAL.GetPersonaDocumentsByMappingAndDocType(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fetch all documents data from Cosmos DB for a mapping and persona type
+            </summary>
+            <param name="countryCode">Country Code</param>
+            <param name="languageCode">Language Code</param>
+            <param name="mappingName">Name of Mapping</param>
+            <param name="mappingType">Type of Mapping</param>
+            <param name="docType">Type of Document</param>
+            <returns>List of Documents</returns>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Helper.Common">
+            <summary>
+            Class containing common methods
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |10/31/2020   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="M:Lutron.DocumentsApi.Helper.Common.ValidateParameters(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,Microsoft.Extensions.Primitives.StringValues}},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.String)">
+            <summary>
+            Validate if parameters of a request are valid 
+            </summary>
+            <param name="inputParameters">List of request parameters</param>
+            <param name="expectedParams">List of parameters expected by a controller</param>
+            <param name="mandatoryParams">List of parameters that are mandatory for an endpoint</param>
+            <param name="allowedLangs">Allowed language codes</param>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Helper.Constants.ErrorCode">
+            <summary>
+            Possible list of error codes
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.Address">
+            <summary>
+            Model class for Address
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ApiResponse.Error">
+            <summary>
+            Custom Error if response is not success
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.ApiResponse`1">
+            <summary>
+            API Response Object With Type
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ApiResponse`1.Success">
+            <summary>
+            Specifies Response Success or Failure
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ApiResponse`1.Data">
+            <summary>
+            Generic Data Object
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ApiResponse`1.Error">
+            <summary>
+            Custom Error if response is not success
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CosmosDBConfigurations">
+            <summary>
+            Configuration Properties for Cosmos DB
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CacheConfigurations">
+            <summary>
+            Configuration Properties for caching 
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.DownloadConfigurations">
+            <summary>
+            Configuration Properties for download 
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CaseStudy">
+            <summary>
+            Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.MappingType">
+            <summary>
+            Mapping Type
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.MappingName">
+            <summary>
+            Mapping Name
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.InternalName">
+            <summary>
+            Internal Name
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.Name">
+            <summary>
+            Case Study Name
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.IsFeatured">
+            <summary>
+            Is Featured Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.Category">
+            <summary>
+            Case Study Category
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.ThumbnailImage">
+            <summary>
+            Thumbnail Image for Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.Assets">
+            <summary>
+            Assets for Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudy.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.DetailedCaseStudy">
+            <summary>
+            Detailed Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DetailedCaseStudy.Description">
+            <summary>
+            Description for case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DetailedCaseStudy.ShortDescription">
+            <summary>
+            Short description for case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DetailedCaseStudy.ImageGallery">
+             <summary>
+            Image Gallery for case Study
+             </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DetailedCaseStudy.Date">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.GenericMapping">
+            <summary>
+            Generic Mapping for Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.GenericMapping.InternalName">
+            <summary>
+            Internal Name
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.GenericMapping.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CaseStudySearchFilter">
+            <summary>
+            Case Study Search Filter
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudySearchFilter.Category">
+            <summary>
+            Category for Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudySearchFilter.Product">
+            <summary>
+            Product for Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudySearchFilter.Region">
+            <summary>
+            Region for Case Study
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CaseStudyFilters">
+            <summary>
+            Case Study Search Filters
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyFilters.Categories">
+            <summary>
+            Categories for Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyFilters.Products">
+            <summary>
+            Products for Case Study
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyFilters.Regions">
+            <summary>
+            Regions for Case Study
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CaseStudyFilterContent">
+            <summary>
+            Case Study Filter Content
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyFilterContent.Category">
+            <summary>
+            Category
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyFilterContent.Product">
+            <summary>
+            Mapping Name
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyFilterContent.Region">
+            <summary>
+            Region
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CaseStudyImage">
+            <summary>
+            Case Study Image
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyImage.Url">
+            <summary>
+            URL of image
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyImage.AltText">
+            <summary>
+            Alt text for image
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CaseStudyAsset">
+            <summary>
+            Case Study Asset
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyAsset.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyAsset.LangCodes">
+            <summary>
+            Language Codes
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyAsset.Url">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CaseStudyCategory">
+            <summary>
+            Case Study Category
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyCategory.Group">
+            <summary>
+            Group for Category
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyCategory.InternalName">
+            <summary>
+            Internal Name for Category
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.CaseStudyCategory.Name">
+            <summary>
+            Name for Category
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.CaseStudyWithFilters">
+            <summary>
+            Case Study With Filters
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.Document">
+            <summary>
+            Document object
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.LanguageCode">
+            <summary>
+            Language Code
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.Format">
+            <summary>
+            Format of Document
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.Title">
+            <summary>
+            Document title in requested language
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.DocumentUrl">
+            <summary>
+            Document URL from Azure blob storage
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.Description">
+            <summary>
+            Description for given Document
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.Voltage">
+            <summary>
+            Voltage associated for requested Document
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.SizeOfDocument">
+            <summary>
+            Size of requested Document
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.IsLegacy">
+            <summary>
+            Boolean field specifying whether given Document is legacy or not
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.Grouping">
+            <summary>
+            Grouping associated with given Document
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.SubGrouping">
+            <summary>
+            Sub-grouping associated with given Document
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.LanguagesInDocument">
+            <summary>
+            List of languages in which given Document is available
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.IsGenericShadesDocument">
+            <summary>
+            Is Generic Shades Document
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.Document.DefaultLanguageMapping">
+            <summary>
+            Object specifying default language for given Document
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.DefaultLanguageDTO">
+            <summary>
+            Default Language object
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DefaultLanguageDTO.Language">
+            <summary>
+            Language Code
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DefaultLanguageDTO.Default">
+            <summary>
+            Boolean field specifying whether given document is default for given language code or not
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.EntityObj">
+            <summary>
+            Entity object having 
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.EntityObj.InternalName">
+            <summary>
+            Entity Internal name which is unique for an entity for all languages
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.EntityObj.Name">
+            <summary>
+            Entity name in given language code
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.DocumentValidation">
+            <summary>
+            Document validation DTO for download documents
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DocumentValidation.DocumentUrl">
+            <summary>
+            Document URL parameter
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DocumentValidation.FileSizeInBytes">
+            <summary>
+            File size in bytes parameter
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DocumentValidation.IsDocumentUrlValid">
+            <summary>
+            Is document valid parameter
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.DocumentValidation.Message">
+            <summary>
+            Error message parameter
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.ZipAndDownloadResponse">
+            <summary>
+             Zip and Download Response
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ZipAndDownloadResponse.ZipDownloadUrl">
+            <summary>
+            Zip Download Url
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ZipAndDownloadResponse.ZipSizeInBytes">
+            <summary>
+            Zip Size in Bytes
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ZipAndDownloadResponse.ExpirationTimeInUTC">
+            <summary>
+            Zip Expiration time in UTC
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ZipAndDownloadResponse.InputRequestDetails">
+            <summary>
+            Input Request Details
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.ModuleBase">
+            <summary>
+            Module base DTO
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.ModuleBase.SortOrder">
+            <summary>
+            Sort order of an item
+            </summary>
+        </member>
+        <member name="T:Lutron.DocumentsApi.Models.LutronApiVersion">
+            <summary>
+            Version object of the class
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.LutronApiVersion.Latest">
+            <summary>
+            Latest Version
+            </summary>
+        </member>
+        <member name="P:Lutron.DocumentsApi.Models.LutronApiVersion.Versions">
+            <summary>
+            All Versions
+            </summary>
+        </member>
+        <member name="T:Lutron.CaseStudiesApi.Controllers.CaseStudiesController">
+            <summary>
+            Description : Version 1.0 of Controller for CaseStudies. Serves request of type - "/api/caseStudies"
+            </summary>
+            <ModificationLog>
+            Version	|Date			|Author			    |Change Description
+            ---------------------------------------------------------------------------------------------------
+            1	    |09/06/2021   	|Soniya Mudgal      |Initial Version
+            </ModificationLog>
+        </member>
+        <member name="M:Lutron.CaseStudiesApi.Controllers.CaseStudiesController.GetAllCaseStudies(System.String,System.String)">
+            <summary>
+            Get all case studies
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>             
+            <returns>Case Studies</returns>
+            <response code="200">List of Case studies in data property</response>
+        </member>
+        <member name="M:Lutron.CaseStudiesApi.Controllers.CaseStudiesController.GetFeaturedCaseStudies(System.String,System.String)">
+            <summary>
+            Get featured case studies
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param> 
+            <returns>CaseStudies</returns>
+            <response code="200">List of CaseStudies in data property</response>
+        </member>
+        <member name="M:Lutron.CaseStudiesApi.Controllers.CaseStudiesController.GetFeaturedCaseStudiesWithFilters(System.String,System.String)">
+            <summary>
+            Get featured case studies and applicable filters
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>  
+            <returns>CaseStudies</returns>
+            <response code="200">List of CaseStudies in data property</response>
+        </member>
+        <member name="M:Lutron.CaseStudiesApi.Controllers.CaseStudiesController.GetCaseStudyByName(System.String,System.String,System.String)">
+            <summary>
+            Get case study by name
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="caseStudyName">Case study name</param>          
+            <returns>Case Study</returns>
+            <response code="200">Case Study in data property</response>
+        </member>
+        <member name="M:Lutron.CaseStudiesApi.Controllers.CaseStudiesController.GetCaseStudiesByCategory(System.String,System.String,System.String)">
+            <summary>
+            Get all case studies mapped with given category
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="categoryName">Category Name</param>       
+            <returns>CaseStudies</returns>
+            <response code="200">List of CaseStudies in data property</response>
+        </member>
+        <member name="M:Lutron.CaseStudiesApi.Controllers.CaseStudiesController.GetCaseStudiesByProduct(System.String,System.String,System.String)">
+            <summary>
+            Get all case studies mapped with product name
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="productName">Product Name</param>      
+            <returns>CaseStudies</returns>
+            <response code="200">List of CaseStudies in data property</response>
+        </member>
+        <member name="M:Lutron.CaseStudiesApi.Controllers.CaseStudiesController.GetCaseStudiesByRegion(System.String,System.String,System.String)">
+            <summary>
+            Get all case studies mapped with region
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>
+            <param name="regionName">Region Name</param>         
+            <returns>CaseStudies</returns>
+            <response code="200">List of CaseStudies in data property</response>
+        </member>
+        <member name="M:Lutron.CaseStudiesApi.Controllers.CaseStudiesController.SearchCaseStudies(System.String,System.String,Lutron.DocumentsApi.Models.CaseStudySearchFilter)">
+            <summary>
+            Get all case studies for the search filters
+            </summary>
+            <param name="countryCode">[required] Country Code - ISO 3166 Alpha-2 code for country</param>
+            <param name="languageCode">[required] Language Code</param>   
+            <param name="searchFilters">Search Filter object</param>   
+            <returns>CaseStudies</returns>
+            <response code="200">List of CaseStudies in data property</response>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Read.Data</name>
+    </assembly>
+    <members>
+        <member name="M:Read.Data.Controllers.VersionController.Version">
+            <summary>
+            Returns the Latest and all Versions of API
+            </summary>
+            <returns>All version and the Latest version</returns>
+        </member>
+        <member name="P:Read.Data.Models.ApiResponse.Error">
+            <summary>
+            Custom Error if response is not success
+            </summary>
+        </member>
+        <member name="T:Read.Data.Models.ApiResponse`1">
+            <summary>
+            API Response Object With Type
+            </summary>
+        </member>
+        <member name="P:Read.Data.Models.ApiResponse`1.Success">
+            <summary>
+            Specifies Response Success or Failure
+            </summary>
+        </member>
+        <member name="P:Read.Data.Models.ApiResponse`1.Data">
+            <summary>
+            Generic Data Object
+            </summary>
+        </member>
+        <member name="P:Read.Data.Models.ApiResponse`1.Error">
+            <summary>
+            Custom Error if response is not success
+            </summary>
+        </member>
+        <member name="T:Read.Data.Models.ApiVersion">
+            <summary>
+            Version object of the class
+            </summary>
+        </member>
+        <member name="P:Read.Data.Models.ApiVersion.Latest">
+            <summary>
+            Latest Version
+            </summary>
+        </member>
+        <member name="P:Read.Data.Models.ApiVersion.Versions">
+            <summary>
+            All Versions
+            </summary>
+        </member>
+        <member name="T:Read.Data.Models.UsersDto">
+            <summary>
+            Version object of the class
+            </summary>
+        </member>
+    </members>
+</doc>
